@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Music, AddMusicData } from '../redux/Types/musicTypes'
 
-const BASE_URL = "http://localhost:8080/music";
+const BASE_URL = "https://addis-music-test.onrender.com/music";
 // Fetching the music
 export const fetchMusics = async (): Promise<Music[]> => {
     try {
