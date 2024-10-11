@@ -30,9 +30,10 @@ const MusicList: React.FC = () => {
 
   // Filtered and Searched Data
   const displayedMusic = musics.filter((song) => {
-    const matchesSearch = song?.title
-      ?.toLowerCase()
-      .includes(searchTerm.toLowerCase());
+    const matchesSearch =
+      song?.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      song?.artist?.toLowerCase().includes(searchTerm.toLowerCase());
+
     const matchesFilter =
       filter === "all" ||
       (filter === "artist" && artists.includes(song._id)) ||
@@ -86,7 +87,7 @@ alert('You want to add to playlist')
       <SearchFilterContainer>
         <SearchBar
           type="text"
-          placeholder="Search for music..."
+          placeholder="Search the music by title or artist name..."
           value={searchTerm}
           onChange={handleSearch}
         />
