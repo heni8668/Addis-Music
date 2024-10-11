@@ -20,28 +20,6 @@ function* fetchMusicsSaga(
 
 // Add music saga
 
-// function* addMusicSaga(action: ReturnType<typeof addMusicAsync.pending>) {
-//   try {
-//     const newMusic: Music  = yield call(addMusic, action.meta.arg);
-//     yield put(
-//       addMusicAsync.fulfilled(newMusic, action.meta.requestId, action.meta.arg)
-//     );
-//   } catch (error) {
-//     if (error instanceof Error) {
-//       yield put(
-//         addMusicAsync.rejected(error, action.meta.requestId, action.meta.arg)
-//       );
-//     } else {
-//       yield put(
-//         addMusicAsync.rejected(
-//           new Error("An unknown error occurred"),
-//           action.meta.requestId,
-//           action.meta.arg
-//         )
-//       );
-//     }
-//   }
-// }
 function* addMusicSaga(action: PayloadAction<AddMusicData>) {
   try {
      const newMusic: Music = yield call(addMusic, action.payload);

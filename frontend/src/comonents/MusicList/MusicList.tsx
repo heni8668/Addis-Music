@@ -42,11 +42,7 @@ const MusicList: React.FC = () => {
     return matchesSearch && matchesFilter;
   });
 
-  //   play music
-  // const playMusic = (music: Music) => {
-  //     dispatch(setSelectedMusic(music));
-  //     dispatch(togglePlayPause(true));
-  //   };
+  
   const playMusic = (song: Music) => {
     // Set the selected music and toggle play/pause
     if (selectedMusic?._id === song._id) {
@@ -110,11 +106,11 @@ alert('You want to add to playlist')
             <MusicInfo>
               {/* Click to route to music details */}
               <Link to={`/musics/${song._id}`}>
-                <MusicTitle>{song?.title}</MusicTitle>
+                <MusicTitle>Title:{song?.title}</MusicTitle>
               </Link>
-              <ArtistName>{song?.artist}</ArtistName>
-              <ArtistName>{song?.album}</ArtistName>
-              <ArtistName>{song?.genre}</ArtistName>
+              <ArtistName>Artist: {song?.artist}</ArtistName>
+              <ArtistName>Album: {song?.album}</ArtistName>
+              <ArtistName>Genre: {song?.genre}</ArtistName>
             </MusicInfo>
             <IconContainer>
               <IconButton onClick={() => toggleLike(song._id)}>
@@ -204,6 +200,7 @@ const MusicInfo = styled.div`
 const MusicTitle = styled.h4`
   margin: 5px 0;
   font-size: 1.1em;
+  font-weight: bold;
   cursor: pointer;
   text-decoration: none;
   color: inherit;
@@ -216,6 +213,8 @@ const MusicTitle = styled.h4`
 const ArtistName = styled.p`
   margin: 0;
   color: #555;
+  font-size: 15px;
+  font-weight: 600;
 `;
 
 const IconContainer = styled.div`
