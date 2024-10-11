@@ -78,6 +78,9 @@ const MusicList: React.FC = () => {
 alert('You want to add to playlist')
   };
 
+  
+  
+
   return (
     <MainContainer>
       <SearchFilterContainer>
@@ -95,7 +98,8 @@ alert('You want to add to playlist')
       </SearchFilterContainer>
 
       <MusicGrid>
-        {displayedMusic.map((song) => (
+        
+        { isLoading ? <Loading>The Music is Loading...</Loading>:displayedMusic.map((song) => (
           <MusicCard key={song._id}>
             {/* Click to play the song */}
             <MusicCardImage
@@ -233,6 +237,12 @@ const IconButton = styled.button`
   &:hover {
     color: #f1c40f;
   }
+
+`;
+const Loading = styled.h3`
+text-align: center;
+font-size: 20px;
+font-weight: bold;
 `;
 
 export default MusicList
