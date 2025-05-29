@@ -11,7 +11,7 @@ function* fetchMusicsSaga(
 ): Generator {
   try {
     const musics: Music[] = (yield call(fetchMusics)) as Music[]; // Explicit type assertion
-    yield put(fetchMusicsAsync.fulfilled(musics, action.meta.requestId)); // Adding requestId and meta as per the requirement
+    yield put(fetchMusicsAsync.fulfilled(musics, action.meta.requestId)); // Adding requestId and meta for fullfilled
   } catch (error: any) {
     yield put(fetchMusicsAsync.rejected(error, action.meta.requestId)); // Adding requestId and meta for rejected
   }
@@ -38,7 +38,7 @@ function* updateMusicSaga(
   try {
     const { id, musicData } = action.meta.arg;
     const response = yield call(updateMusic, id, musicData);
-    const updatedMusic: AddMusicData | any = response.data; // Ensure this matches the expected type
+    const updatedMusic: AddMusicData | any = response.data; 
     yield put(
       updateMusicAsync.fulfilled(
         updatedMusic,
@@ -114,7 +114,7 @@ function* musicSagas(): Generator {
     yield takeLatest(fetchMusicsAsync.pending.type, fetchMusicsSaga);
     yield takeLatest(addMusicAsync.pending.type, addMusicSaga);
     yield takeLatest(updateMusicAsync.pending.type, updateMusicSaga);
-    yield takeLatest(deleteMusicAsync.pending.type, deleteMusicSaga);  // Add other watcher sagas here if needed. For example, to listen to statistics updates:
+    yield takeLatest(deleteMusicAsync.pending.type, deleteMusicSaga);  
     
 }
 

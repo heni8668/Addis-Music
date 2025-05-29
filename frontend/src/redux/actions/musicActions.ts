@@ -25,7 +25,7 @@ export const addMusicAsync = createAsyncThunk<Music, AddMusicData>(
     const response = await addMusic(musicData);
     console.log(response);
 
-    return response; // Assuming this returns a status code
+    return response; 
   }
 );
 
@@ -35,7 +35,7 @@ export const updateMusicAsync = createAsyncThunk<
   { id: string; musicData: FormData | Partial<Omit<Music, "_id">> }
 >("musics/updateMusic", async ({ id, musicData }) => {
   const response = await updateMusic(id, musicData);
-  return response; // Ensure this returns the correct structure
+  return response; 
 });
 
 
@@ -64,6 +64,6 @@ export const fetchStatisticsAsync = createAsyncThunk<Statistics, void>(
 );
 
 // Selected music
-export const setSelectedMusic = createAction<Music>('music/setSelectedMusic'); // Assuming you want to set the selected music
-export const togglePlayPause = createAction<boolean>('music/togglePlayPause'); // Assuming a boolean indicates play/pause state
+export const setSelectedMusic = createAction<Music>('music/setSelectedMusic'); // set the selected music
+export const togglePlayPause = createAction<boolean>('music/togglePlayPause'); //  a boolean indicates play/pause state
 export const clearAddMusicStatus = createAction("musics/clearAddMusicStatus");

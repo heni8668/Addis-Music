@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useState } from 'react'
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchMusicsAsync, setSelectedMusic, togglePlayPause } from "../../redux/actions/musicActions";
 import { FaHeart, FaRegHeart, FaStar, FaRegStar, FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom"; // Import Link for navigation
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Music } from '../../redux/Types/musicTypes';
 import Player from '../Player/Player';

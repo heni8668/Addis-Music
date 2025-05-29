@@ -68,7 +68,7 @@ const musicReducer = createReducer(initialState, (builder) => {
         state.status = 0;
       })
       .addCase(updateMusicAsync.fulfilled, (state, action) => {
-        const updatedMusicData = action.payload; // This should now match the UpdateMusicResponse type
+        const updatedMusicData = action.payload; 
         const updatedMusic = updatedMusicData.data;
         state.status = updatedMusicData.status;
 
@@ -84,7 +84,7 @@ const musicReducer = createReducer(initialState, (builder) => {
         state.isLoading = false;
       })
       .addCase(updateMusicAsync.rejected, (state, action) => {
-        state.status = action.error.message ? 500 : 0; // You may want to set a default status
+        state.status = action.error.message ? 500 : 0; //  to set a default status
         state.isLoading = false;
       })
 
@@ -93,7 +93,7 @@ const musicReducer = createReducer(initialState, (builder) => {
         const deletedMusicId = action.payload; // Ensure this is a string
         state.musics = state.musics.filter(
           (music) => music._id !== deletedMusicId.toString()
-        ); // Convert if needed
+        ); 
         state.selectedMusic = null;
         state.isPlaying = false;
       })

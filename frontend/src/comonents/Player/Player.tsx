@@ -16,7 +16,6 @@ import {
   FaExpand,
   FaCompress,
 } from "react-icons/fa";
-import { RootState } from "../../redux/store"; // Adjust based on your store location
 import { Music } from "../../redux/Types/musicTypes"; // Ensure you're importing the correct Music type
 
 interface PlayerProps {
